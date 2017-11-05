@@ -21,6 +21,16 @@ void setup() {
   chuck.begin();
   chuck.update();
 
+  // Set the states for the outputs before we define them as outputs
+  // prevents momentarily triggering the relays because default state is LOW (ON in our case) 
+  digitalWrite(PLOW_DOWN, OFF);
+  digitalWrite(PLOW_UP, OFF);
+  digitalWrite(RIGHT_OUT, OFF);
+  digitalWrite(RIGHT_IN, OFF);
+  digitalWrite(LEFT_OUT, OFF);
+  digitalWrite(LEFT_IN, OFF);
+  digitalWrite(PUMP, OFF);
+
   pinMode(PLOW_DOWN, OUTPUT);
   pinMode(PLOW_UP, OUTPUT);
   pinMode(RIGHT_OUT, OUTPUT);
@@ -29,13 +39,6 @@ void setup() {
   pinMode(LEFT_IN, OUTPUT);
   pinMode(PUMP, OUTPUT);
 
-  digitalWrite(PLOW_DOWN, OFF);
-  digitalWrite(PLOW_UP, OFF);
-  digitalWrite(RIGHT_OUT, OFF);
-  digitalWrite(RIGHT_IN, OFF);
-  digitalWrite(LEFT_OUT, OFF);
-  digitalWrite(LEFT_IN, OFF);
-  digitalWrite(PUMP, OFF);
 }
 
 int u_d_latch = -1;
